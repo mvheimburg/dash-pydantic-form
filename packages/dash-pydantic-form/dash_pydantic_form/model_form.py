@@ -358,7 +358,7 @@ class ModelForm(html.Div):
                 else:
                     field_repr = fields_repr[field_name]
                     if more_kwargs:
-                        field_repr = field_repr.__class__(**(field_repr.model_dump() | more_kwargs))
+                        field_repr = field_repr.__class__(**(dict(field_repr)| more_kwargs))
             else:
                 field_repr = get_default_repr(field_info, **more_kwargs)
 
